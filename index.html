@@ -10,10 +10,20 @@
   </head>
   <body>
     <div id="app">
-      <h1>Product goes here</h1>
+      <h1>{{product}}</h1>
     </div>
-
-    <!-- Import Js -->
+    <div>
+      <p id='p'>
+      {{description}}
+      </p>
+    </div>
+    <!-- Import App -->
     <script src="./main.js"></script>
+    <!-- Mount App -->
+    <script>
+      const appMounted = app.mount('#app')
+      const pMounted = p.mount('#p')
+    </script>
+
   </body>
 </html>
