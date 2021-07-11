@@ -4,6 +4,11 @@ const app = Vue.createApp({
             product: 'Test',
             image:'./assets/images/socks_blue.jpg',
             inventory:10,
+            details:['first element','second element','just for test'],
+            variants:[
+                {id:'0001',color:'green'},
+                {id:'0002',color:'blue'}
+            ]
         }
     }
     
