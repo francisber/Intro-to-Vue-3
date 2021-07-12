@@ -12,10 +12,11 @@
     <div id="app">
       <div>
         <h1>{{product}}</h1>
-        <p v-if="inventory>10">
+        <div class="cart">Cart({{cart}})</div>
+        <p v-if="inStock>10">
           In Stock
         </p>
-        <p v-else-if="inventory>=10 && inventory>0">
+        <p v-else-if="inStock>=10 && inStock>0">
           Almost Sold Out
         </p>
         <p v-else>
@@ -25,8 +26,10 @@
           <li v-for="detail in details">{{detail}}</li>
         </ul>
         <ul>
-          <li v-for="variant in variants" :key="variant.id">{{variant.color}}</li>
+          <li v-for="(variant,index) in variants" :key="variant.id" @mouseover="changeVariant(index)" :style="{backgroundColor:variant.color}" class="color-circle"></li>
         </ul>
+        <button class="button" :class="[inStock ? '' : 'disabledButton']" @click="addToCart" :disabled="!inStock" >Add to Cart</button>
+       <!-- <button class="button" :class="{disabledButton: !inStock}" @click="addToCart" :disabled="!inStock" >Add to Cart</button>-->
       </div>
       <div>
         <img :src="image" alt="">
